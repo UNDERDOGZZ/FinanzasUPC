@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.finanzas.entities.Contrato;
 import com.finanzas.entities.Flujo;
 import com.finanzas.service.FlujoService;
 
@@ -95,6 +96,20 @@ public class FlujoController {
 			}
 		} catch (Exception e) {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
+	@PostMapping(value = "/saveFlujo",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> saveFlujo(@Valid @RequestBody Contrato contrato) {
+		try {
+			Flujo s = new Flujo();
+			s = flujoService.saveFlujo(contrato);
+			URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(s.getId())
+					.toUri();
+			return ResponseEntity.created(location).build();
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 	}

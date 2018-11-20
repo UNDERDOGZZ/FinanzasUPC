@@ -8,5 +8,5 @@ import com.finanzas.entities.Flujo;
 public interface FlujoService extends CrudService<Flujo> {
 	Flujo fetchByContratoIdNumeroFila(int contratoId, int numerofila) throws Exception;
 
-	void saveFlujo(Contrato c) throws Exception;
+	Flujo saveFlujo(Contrato c) throws Exception;
 }

@@ -61,7 +61,7 @@ public class FlujoServiceImpl implements FlujoService {
 	}
 
 	@Override
-	public void saveFlujo(Contrato c) throws Exception {
+	public Flujo saveFlujo(Contrato c) throws Exception {
 		c.setPorcentajeIGV(0.18);
 		
 		double IGV =(c.getPrecioVenta()/(1+c.getPorcentajeIGV())*c.getPorcentajeIGV());
@@ -86,25 +86,27 @@ public class FlujoServiceImpl implements FlujoService {
 		
 		for(int i= 0; i <NumeroTotalCuotas;i++)
 		{
+			flujo = new Flujo();
+			flujoaux = new Flujo();
+			
 			if(numfila==1)
 			{
 				
-				this.save(flujo);
-				flujo = new Flujo();
+				
 				numfila++;
+				flujoRepository.save(flujo);
 			}
 			else
 			{
 				flujoaux = this.fetchByContratoIdNumeroFila(c.getId(), numfila);
 				
 				
-				this.save(flujo);
-				flujo = new Flujo();
-				flujoaux = new Flujo();
+				
 				numfila++;
+				flujoRepository.save(flujo);		
 			}
 		}
-		
+		return flujo;
 	}
 
 }
