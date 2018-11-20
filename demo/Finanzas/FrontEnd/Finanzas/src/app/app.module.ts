@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateContratoComponent } from './create-contrato/create-contrato.component';
 import { ContratoDetailsComponent } from './contrato-details/contrato-details.component';
-import { ConratoListComponent } from './conrato-list/conrato-list.component';
+import { ContratoListComponent } from './contrato-list/contrato-list.component';
 import { SearchContratoComponent } from './search-contrato/search-contrato.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
 import { SearchUsuarioComponent } from './search-usuario/search-usuario.component'
@@ -16,7 +16,7 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     CreateContratoComponent,
     ContratoDetailsComponent,
-    ConratoListComponent,
+    ContratoListComponent,
     SearchContratoComponent,
     CreateUsuarioComponent,
     SearchUsuarioComponent

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Contrato } from '../model/contrato';
+import { ContratoService } from '../contrato.service';
 
 @Component({
   selector: 'app-contrato-details',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContratoDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Input() contrato: Contrato;
+
+  constructor(private contratoService:ContratoService) { }
 
   ngOnInit() {
   }

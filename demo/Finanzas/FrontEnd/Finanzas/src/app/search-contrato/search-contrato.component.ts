@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contrato } from '../model/contrato';
+import { ContratoService } from '../contrato.service';
 
 @Component({
   selector: 'app-search-contrato',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchContratoComponent implements OnInit {
 
-  constructor() { }
+  text:string = "";
+  contratos:Contrato[];
+
+  constructor(private contratoService: ContratoService) { }
 
   ngOnInit() {
+    this.searchContrato();
   }
 
+  searchContrato()
+  {
+    if(this.text.length > 0)
+    {
+      this.contratoService.getContratosByEmpresa(this.text)
+     .subscribe(contratos=>this.contratos=contratos);
+    }
+    else{
+      this.contratoService.getContratos()
+      .subscribe(contratos => this.contratos = contratos);
+    }
+  }
 }

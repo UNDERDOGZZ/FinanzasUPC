@@ -28,4 +28,9 @@ export class ContratoService {
   getContratos():Observable<any>{
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getContratosByEmpresa(empresa:string):Observable<any>{
+    return this.http.get(`${this.baseUrl}/search/${empresa}`);
+  }
+
 }
