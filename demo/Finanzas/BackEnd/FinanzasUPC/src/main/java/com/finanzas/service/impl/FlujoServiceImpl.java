@@ -112,7 +112,7 @@ public class FlujoServiceImpl implements FlujoService {
 				if (c.getPlazogracia().equals("T")  && numfila <= c.getNumeroCuotasPG()) {
 					flujo.setCuota(0);
 					flujo.setAmortizacion(0);
-					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
+					flujo.setSaldoFinal(flujo.getSaldoInicial() - flujo.getInteres());
 				}
 				if (c.getPlazogracia().equals("P")  && c.getNumeroCuotasPG() >= numfila) {
 					flujo.setCuota(flujo.getInteres());
@@ -121,15 +121,16 @@ public class FlujoServiceImpl implements FlujoService {
 
 				}
 				if (c.getNumeroCuotasPG() < numfila) {
+					flujo.setPlazoGracia("S");
 					flujo.setAmortizacion(-1 * flujo.getSaldoInicial() / (NumeroTotalCuotas - numfila + 1));
 					flujo.setCuota(flujo.getInteres() + flujo.getAmortizacion());
 					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
+					
 				}
 				flujo.setSeguroRiesgo(flujo.getSeguroRiesgo() * -1);
 				flujo.setComision(c.getComisionPeriodica() * -1);
 				flujo.setDepreciacion(ValorVenta / NumeroTotalCuotas * -1);
-				flujo.setAhorroTributario(
-						flujo.getInteres() + flujo.getSeguroRiesgo() + flujo.getComision() + flujo.getDepreciacion());
+				flujo.setAhorroTributario((flujo.getInteres() + flujo.getSeguroRiesgo() + flujo.getComision() + flujo.getDepreciacion())*c.getPorcentajeImpuestoRenta());
 				if (numfila == NumeroTotalCuotas) {
 					flujo.setRecompra(ValorVenta * c.getPorcentajeRecompra() * -1);
 				} else {
@@ -146,6 +147,7 @@ public class FlujoServiceImpl implements FlujoService {
 				flujo.setNumeroFila(numfila);
 				numfila++;	
 				listaflujos.add(flujo);
+				
 			} else 
 			{
 				//flujoaux = this.fetchByContratoIdNumeroFila(1, 1);
@@ -158,7 +160,7 @@ public class FlujoServiceImpl implements FlujoService {
 				if (c.getPlazogracia().equals("T")  && numfila <= c.getNumeroCuotasPG()) {
 					flujo.setCuota(0);
 					flujo.setAmortizacion(0);
-					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
+					flujo.setSaldoFinal(flujo.getSaldoInicial() - flujo.getInteres());
 				}
 				if (c.getPlazogracia().equals("P")  && c.getNumeroCuotasPG() >= numfila) {
 					flujo.setCuota(flujo.getInteres());
@@ -168,6 +170,7 @@ public class FlujoServiceImpl implements FlujoService {
 				}
 				
 				if (c.getNumeroCuotasPG() < numfila) {
+					flujo.setPlazoGracia("S");
 					flujo.setAmortizacion(-1 * flujo.getSaldoInicial() / (NumeroTotalCuotas - numfila + 1));
 					flujo.setCuota(flujo.getInteres() + flujo.getAmortizacion());
 					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
@@ -175,8 +178,7 @@ public class FlujoServiceImpl implements FlujoService {
 				flujo.setSeguroRiesgo(flujo.getSeguroRiesgo() * -1);
 				flujo.setComision(c.getComisionPeriodica() * -1);
 				flujo.setDepreciacion(ValorVenta / NumeroTotalCuotas * -1);
-				flujo.setAhorroTributario(
-						flujo.getInteres() + flujo.getSeguroRiesgo() + flujo.getComision() + flujo.getDepreciacion());
+				flujo.setAhorroTributario((flujo.getInteres() + flujo.getSeguroRiesgo() + flujo.getComision() + flujo.getDepreciacion())*c.getPorcentajeImpuestoRenta());
 				if (numfila == NumeroTotalCuotas) {
 					flujo.setRecompra(ValorVenta * c.getPorcentajeRecompra() * -1);
 				} else {

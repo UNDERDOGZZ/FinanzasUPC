@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.finanzas.entities.Flujo;
 import com.finanzas.entities.Resultado;
 import com.finanzas.service.ResultadoService;
 
@@ -97,5 +98,16 @@ public class ResultadoController {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
+	}
+	
+	@GetMapping(value = "/contrato/todos/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Resultado> fetchFlujos(@PathVariable("id") Integer id) {
+		try {
+			Resultado signs = new Resultado();
+			signs = resultadoService.fecthResultados(id);
+			return new ResponseEntity<Resultado>(signs, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Resultado>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }

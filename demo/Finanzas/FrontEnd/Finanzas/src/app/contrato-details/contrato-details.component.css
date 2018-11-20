@@ -16,10 +16,26 @@ p.accordion.active, p.accordion:hover {
     background-color:  lightblue;
 }
 
-.btn
+.btnFlujo
 {
     color:white;
     background-color: #4CAF50;
-    margin-top:-8%;
-    margin-left:72.5%;
+    padding: 5px 20px;
+}
+
+.btn-group{
+    margin-left: 65%;
+    margin-top: -16vh;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn-group button {
+    padding: 5px 20px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    width:120px;
+    height:48px;
+    background-color: #4CAF50;
+    color:white;
 }

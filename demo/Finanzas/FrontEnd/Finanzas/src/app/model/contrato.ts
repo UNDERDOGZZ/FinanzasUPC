@@ -22,5 +22,5 @@ export class Contrato {
     tasaDescuentoKs: number;
     tasaDescuentoWACC: number;
     plazogracia:string;
-    numeroCuotasPG:number;
+    numeroCuotasPG:number
 }

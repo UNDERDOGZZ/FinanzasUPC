@@ -18,7 +18,7 @@ export class FlujoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.flujoService.getByContrato(this.contrato.id).
+    this.flujoService.getAllFlujoByContrato(this.contrato.id).
     subscribe(data => this.flujos = data);
   }
 

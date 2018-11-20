@@ -1,4 +1,46 @@
-<div *ngFor="let flujo of flujos">
-  <app-flujo-details [flujo]='flujo'>
-  </app-flujo-details>
-</div>>
+
+
+<div ng-controller="AngularWayCtrl as showCase">
+    <table datatable="ng" class="row-border hover" cellpadding="10">
+        <thead>
+        <tr class="cell">
+            <th>Numero Fila</th>
+            <th>PG</th>
+            <th>Saldo Inicial</th>
+            <th>Interes</th>
+            <th>Cuota</th>
+            <th>Amortizacion</th>
+            <th>Seguro de Riesgo</th>
+            <th>Comision</th>
+            <th>Recompra</th>
+            <th>Saldo Final</th>
+            <th>Depreciacion</th>
+            <th>Ahorro Tributario</th>
+            <th>IGV</th>
+            <th>Flujo Bruto</th>
+            <th>Flujo IGV</th>
+            <th>Flujo Neto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let flujo of flujos">
+            <td>{{ flujo.numeroFila }}</td>
+            <td>{{ flujo.plazoGracia }}</td>
+            <td>{{ flujo.saldoInicial }}</td>
+            <td>{{ flujo.interes }}</td>
+            <td>{{ flujo.cuota }}</td>
+            <td>{{ flujo.amortizacion }}</td>
+            <td>{{ flujo.seguroRiesgo }}</td>
+            <td>{{ flujo.comision }}</td>
+            <td>{{ flujo.recompra }}</td>
+            <td>{{ flujo.saldoFinal }}</td>
+            <td>{{ flujo.depreciacion }}</td>
+            <td>{{ flujo.ahorroTributario }}</td>
+            <td>{{ flujo.igv }}</td>
+            <td>{{ flujo.flujoBruto }}</td>
+            <td>{{ flujo.flujoIGV }}</td>
+            <td>{{ flujo.flujoNeto }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

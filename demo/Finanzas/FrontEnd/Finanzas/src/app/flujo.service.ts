@@ -25,8 +25,8 @@ export class FlujoService {
     return this.http.get(`${this.baseUrl}/contrato/${id}`);
   }
 
-  getAllFlujoByContrato(id: number)
+  getAllFlujoByContrato(id: number):Observable<any>
   {
-    return this.http.get(`${this.baseUrl}/contrato/todos/{id}`);
+    return this.http.get(`${this.baseUrl}/contrato/todos/${id}`);
   }
 }

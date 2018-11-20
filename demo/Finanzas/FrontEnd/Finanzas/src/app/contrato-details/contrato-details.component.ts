@@ -10,7 +10,8 @@ import { FlujoService } from '../flujo.service';
 })
 export class ContratoDetailsComponent implements OnInit {
 
-  seCreoFlujo: boolean = false;
+  mostrarflujo: boolean = false;
+  mostrarresultado: boolean = false;
 
   @Input() contrato: Contrato;
 
@@ -20,8 +21,12 @@ export class ContratoDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  crearFlujo()
+  mostrarF()
   {
-    this.seCreoFlujo = true;
+    this.mostrarflujo = !this.mostrarflujo;
+  }
+  mostrarR()
+  {
+    this.mostrarresultado = !this.mostrarresultado;
   }
 }

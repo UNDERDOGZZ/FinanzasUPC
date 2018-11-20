@@ -15,6 +15,7 @@ export class CreateContratoComponent implements OnInit {
   usuarioaux: Usuario = new Usuario();
   contrato: Contrato = new Contrato();
   selectedMoneda: string;
+  selectedPlazo: string;
 
   constructor(private contratoService: ContratoService,
     private usuarioService: UsuarioService) { }

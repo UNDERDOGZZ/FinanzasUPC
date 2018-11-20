@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { FlujoListComponent } from './flujo-list/flujo-list.component';
 import { FlujoDetailsComponent } from './flujo-details/flujo-details.component';
+import { LoginComponent } from './login/login.component';
+import { ResultadoListComponent } from './resultado-list/resultado-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { FlujoDetailsComponent } from './flujo-details/flujo-details.component';
     CreateUsuarioComponent,
     SearchUsuarioComponent,
     FlujoListComponent,
-    FlujoDetailsComponent
+    FlujoDetailsComponent,
+    LoginComponent,
+    ResultadoListComponent
   ],
   imports: [
     BrowserModule,

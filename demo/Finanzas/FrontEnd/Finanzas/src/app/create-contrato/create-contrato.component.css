@@ -1,6 +1,6 @@
 .formas
 {
-    width:30%;
+    width:80%;
     margin:auto;
 }
 
@@ -9,7 +9,15 @@
     padding: 10px;
 }
 .col {
-    float: left;
-    width: 50%;
+    float:left;
+    width: 30%;
     padding: 10px;
+}
+
+.formas2
+{
+    width:50%;
+    padding:10px;
+    margin:auto;
+    outline:black solid;
 }

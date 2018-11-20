@@ -1,10 +1,14 @@
 <div>
 <p class="accordion" (click)="isOn=!isOn">
-{{contrato.usuarioId.empresa}}: contrato numero {{contrato.id}}
+<b>{{contrato.usuarioId.empresa}}:</b> contrato número {{contrato.id}}
 <br>
 Moneda: {{contrato.moneda}}
 </p>
-    <button class="btn" id="btn" (click)="crearFlujo()">Crear Flujo</button>
+<div class="btn-group">
+    <button class="btnFlujo" id="btnFlujo" (click)="mostrarF()">Mostrar Flujo</button>
+    <button class="btnResultado" id="btnResultado" (click)="mostrarR()">Mostrar Resultado</button>
+</div>
 </div>
 
-<app-flujo-list *ngIf="seCreoFlujo && isOn" [contrato]='contrato'></app-flujo-list>
+<app-flujo-list *ngIf="mostrarflujo" [contrato]='contrato'></app-flujo-list>
+<app-resultado-list *ngIf="mostrarresultado" [contrato]='contrato'></app-resultado-list>

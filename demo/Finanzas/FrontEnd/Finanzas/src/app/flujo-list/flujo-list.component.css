@@ -1,0 +1,14 @@
+table, th, td {
+    border: 1px solid black;
+    margin:auto;
+    text-align: center;
+}
+
+th, td {
+    padding: 3px;
+    font-size: 10px;
+}
+
+.neto{
+    width:100px
+}
