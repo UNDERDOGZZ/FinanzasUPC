@@ -24,4 +24,9 @@ export class FlujoService {
   {
     return this.http.get(`${this.baseUrl}/contrato/${id}`);
   }
+
+  getAllFlujoByContrato(id: number)
+  {
+    return this.http.get(`${this.baseUrl}/contrato/todos/{id}`);
+  }
 }

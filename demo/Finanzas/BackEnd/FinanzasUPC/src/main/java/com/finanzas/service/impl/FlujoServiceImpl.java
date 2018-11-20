@@ -73,7 +73,7 @@ public class FlujoServiceImpl implements FlujoService {
 		
 		List<Flujo> listaflujos = new ArrayList<>();
 		
-		Optional<Contrato> c2 = contratoRepository.findById(1);
+		Optional<Contrato> c2 = contratoRepository.findById(id);
 		
 		Contrato c =  c2.get();
 		
@@ -109,12 +109,12 @@ public class FlujoServiceImpl implements FlujoService {
 			if (numfila == 1) {
 				flujo.setSaldoInicial(MontoLeasing);
 				flujo.setInteres(flujo.getSaldoInicial() * -1 * PorcentajeTEP);
-				if (c.getPlazogracia() == "T" && numfila <= c.getNumeroCuotasPG()) {
+				if (c.getPlazogracia().equals("T")  && numfila <= c.getNumeroCuotasPG()) {
 					flujo.setCuota(0);
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
 				}
-				if (c.getPlazogracia() == "P" && c.getNumeroCuotasPG() >= numfila) {
+				if (c.getPlazogracia().equals("T")  && c.getNumeroCuotasPG() >= numfila) {
 					flujo.setCuota(flujo.getInteres());
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial());
