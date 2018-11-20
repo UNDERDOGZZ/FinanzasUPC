@@ -23,7 +23,5 @@ export class ContratoDetailsComponent implements OnInit {
   crearFlujo()
   {
     this.seCreoFlujo = true;
-    this.flujoService.saveFlujo(this.contrato).
-    subscribe(data=>console.log(data),error=>console.log(error));
   }
 }

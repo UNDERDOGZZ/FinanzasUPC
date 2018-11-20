@@ -114,7 +114,7 @@ public class FlujoServiceImpl implements FlujoService {
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
 				}
-				if (c.getPlazogracia().equals("T")  && c.getNumeroCuotasPG() >= numfila) {
+				if (c.getPlazogracia().equals("P")  && c.getNumeroCuotasPG() >= numfila) {
 					flujo.setCuota(flujo.getInteres());
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial());
@@ -155,12 +155,12 @@ public class FlujoServiceImpl implements FlujoService {
 				flujo.setSaldoInicial(flujoaux.getSaldoFinal());
 				
 				flujo.setInteres(flujo.getSaldoInicial() * -1 * PorcentajeTEP);
-				if (c.getPlazogracia() == "T" && numfila <= c.getNumeroCuotasPG()) {
+				if (c.getPlazogracia().equals("T")  && numfila <= c.getNumeroCuotasPG()) {
 					flujo.setCuota(0);
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial() + flujo.getAmortizacion());
 				}
-				if (c.getPlazogracia() == "P" && c.getNumeroCuotasPG() >= numfila) {
+				if (c.getPlazogracia().equals("P")  && c.getNumeroCuotasPG() >= numfila) {
 					flujo.setCuota(flujo.getInteres());
 					flujo.setAmortizacion(0);
 					flujo.setSaldoFinal(flujo.getSaldoInicial());
