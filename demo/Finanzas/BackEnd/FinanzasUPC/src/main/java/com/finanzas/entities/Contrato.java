@@ -29,35 +29,27 @@ public class Contrato {
 	private String moneda;
 	
 	//Datos del Prestamo
-	@DecimalMin("1.00")
 	@Column(name = "precio_venta", nullable = false)
 	private double precioVenta;
 
-	@DecimalMin("1.00")
 	@Column(name = "numero_annos", nullable = false)
 	private double numeroAnnos;
 	
-	@DecimalMin("1.00")
 	@Column(name = "frecuencia_de_pago", nullable = false)
 	private double frecuenciaDePago;
 
-	@DecimalMin("1.00")
 	@Column(name = "numero_dias_por_anno", nullable = false)
 	private double numeroDiasPorAnno;
 
-	@DecimalMin("0.0")
 	@Column(name = "porcentaje_TEA", nullable = false)
 	private double porcentajeTEA;
 
-	@DecimalMin("0.0")
 	@Column(name = "porcentaje_IGV", nullable = false)
 	private double porcentajeIGV = 0.18;
 
-	@DecimalMin("0.0")
 	@Column(name = "porcentaje_impuesto_renta", nullable = false)
 	private double porcentajeImpuestoRenta;
 
-	@DecimalMin("0.0")
 	@Column(name = "porcentaje_recompra", nullable = false)
 	private double porcentajeRecompra;
 
@@ -101,7 +93,7 @@ public class Contrato {
 	
 	@Column(name = "numeroCuotasPG", nullable = false)
 	private int numeroCuotasPG = 0;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -110,20 +102,20 @@ public class Contrato {
 		this.id = id;
 	}
 
-	public String getMoneda() {
-		return moneda;
-	}
-
-	public void setMoneda(String moneda) {
-		this.moneda = moneda;
-	}
-
 	public Usuario getUsuarioId() {
 		return usuarioId;
 	}
 
 	public void setUsuarioId(Usuario usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+
+	public String getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
 	}
 
 	public double getPrecioVenta() {
@@ -262,6 +254,21 @@ public class Contrato {
 		this.tasaDescuentoWACC = tasaDescuentoWACC;
 	}
 
-	
+	public String getPlazogracia() {
+		return plazogracia;
+	}
+
+	public void setPlazogracia(String plazogracia) {
+		this.plazogracia = plazogracia;
+	}
+
+	public int getNumeroCuotasPG() {
+		return numeroCuotasPG;
+	}
+
+	public void setNumeroCuotasPG(int numeroCuotasPG) {
+		this.numeroCuotasPG = numeroCuotasPG;
+	}
+		
 	
 }

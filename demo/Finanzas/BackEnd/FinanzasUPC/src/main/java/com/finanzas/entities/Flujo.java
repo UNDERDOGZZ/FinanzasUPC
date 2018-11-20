@@ -72,7 +72,7 @@ public class Flujo {
 
 	@Column(name = "numeroFila", nullable = false)
 	private int numeroFila;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -208,6 +208,15 @@ public class Flujo {
 	public void setFlujoNeto(double flujoNeto) {
 		this.flujoNeto = flujoNeto;
 	}
+
+	public int getNumeroFila() {
+		return numeroFila;
+	}
+
+	public void setNumeroFila(int numeroFila) {
+		this.numeroFila = numeroFila;
+	}
+	
 	
 	
 }

@@ -1,21 +1,31 @@
 <h3>Contrato</h3>
 <div>
 
-  <form (ngSubmit)="save()">
+  <form (ngSubmit)="save()" class="formas">
       <select name="monedaSelect" [(ngModel)]="contrato.moneda">
           <option value="Dolar">Dolar</option>
           <option value="Euro">Euro</option>
         </select>
 
+        <div class="row">
+
+            <div class="col">
     <div class="form-group">
       <label for="precioVenta">Precio Venta:</label>
       <input type="text" class="form-control" id="precioVenta" required [(ngModel)]="contrato.precioVenta" name="precioVenta">
     </div>
 
+  </div>
+
+    <div class="col">
     <div class="form-group">
       <label for="numeroAnnos">Numero Años:</label>
       <input type="text" class="form-control" id="numeroAnnos" required [(ngModel)]="contrato.numeroAnnos" name="numeroAnnos">
     </div>
+
+  </div>
+  
+  </div>
 
     <div class="form-group">
       <label for="frecuenciaDePago">Frecuencia de Pago:</label>
@@ -42,7 +52,8 @@
       <input type="text" class="form-control" id="porcentajeRecompra" required [(ngModel)]="contrato.porcentajeRecompra" name="porcentajeRecompra">
     </div>
 
-    <h3>Gastos iniciales</h3>
+    <h3>Gastos iniciales:</h3>
+    <br>
 
     <div class="form-group">
       <label for="costesNotariales">Costes Notariales:</label>
@@ -69,7 +80,8 @@
       <input type="text" class="form-control" id="comisionActivacion" required [(ngModel)]="contrato.comisionActivacion" name="comisionActivacion">
     </div>
 
-    <h3>Gastos periodicos</h3>
+    <h3>Gastos periodicos:</h3>
+    <br>
     <div class="form-group">
       <label for="comisionPeriodica">Comision periodica:</label>
       <input type="text" class="form-control" id="comisionPeriodica" required [(ngModel)]="contrato.comisionPeriodica" name="comisionPeriodica">
@@ -80,7 +92,8 @@
       <input type="text" class="form-control" id="porcentajeSeguroRiesgo" required [(ngModel)]="contrato.porcentajeSeguroRiesgo" name="porcentajeSeguroRiesgo">
     </div>
 
-    <h3>Costo de oportunidad</h3>
+    <h3>Costo de oportunidad:</h3>
+    <br>
     <div class="form-group">
       <label for="tasaDescuentoKs">Tasa de Descuento Ks:</label>
       <input type="text" class="form-control" id="tasaDescuentoKs" required [(ngModel)]="contrato.tasaDescuentoKs" name="tasaDescuentoKs">

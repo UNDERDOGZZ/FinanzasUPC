@@ -15,3 +15,11 @@ p.accordion {
 p.accordion.active, p.accordion:hover {
     background-color:  lightblue;
 }
+
+.btn
+{
+    color:white;
+    background-color: #4CAF50;
+    margin-top:-8%;
+    margin-left:72.5%;
+}

@@ -1,5 +1,10 @@
+<div>
 <p class="accordion" (click)="isOn=!isOn">
 {{contrato.usuarioId.empresa}}: contrato numero {{contrato.id}}
 <br>
 Moneda: {{contrato.moneda}}
 </p>
+    <button class="btn" id="btn" (click)="crearFlujo()">Crear Flujo</button>
+</div>
+
+<app-flujo-list *ngIf="seCreoFlujo && isOn" [contrato]='contrato'></app-flujo-list>

@@ -44,6 +44,17 @@ public class FlujoController {
 		}
 	}
 
+	@GetMapping(value = "/contrato/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Flujo>> findByContratoId(@PathVariable("id") Integer id) {
+		try {
+			List<Flujo> signs = new ArrayList<>();
+			signs = flujoService.fetchByContratoId(id);
+			return new ResponseEntity<List<Flujo>>(signs, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<Flujo>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Flujo> findById(@PathVariable("id") Integer id) {
 		try {
@@ -100,17 +111,15 @@ public class FlujoController {
 
 	}
 	
-	@PostMapping(value = "/saveFlujo",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> saveFlujo(@Valid @RequestBody Contrato contrato) {
+	@GetMapping(value = "/contrato/todos/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Flujo>> fetchFlujos(@PathVariable("id") Integer id) {
 		try {
-			Flujo s = new Flujo();
-			s = flujoService.saveFlujo(contrato);
-			URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(s.getId())
-					.toUri();
-			return ResponseEntity.created(location).build();
+			List<Flujo> signs = new ArrayList<>();
+			signs = flujoService.fetchFlujos(id);
+			return new ResponseEntity<List<Flujo>>(signs, HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<List<Flujo>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-
 	}
+	
 }

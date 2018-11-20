@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Flujo } from '../model/flujo';
 
 @Component({
   selector: 'app-flujo-details',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlujoDetailsComponent implements OnInit {
 
+  @Input() flujo: Flujo;
   constructor() { }
 
   ngOnInit() {

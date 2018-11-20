@@ -1,4 +1,31 @@
-nav.a
-{
-    margin-left: 40%;
+.botons{
+    text-align: center;
+    margin:auto;
+    padding:15px;
+  }
+  div#nav ul{
+    display: inline-block;
+  }
+
+  nav a{
+    list-style: none;
+    margin: 0 5px;
+    padding: 6px;
+  }
+  .titulo
+  {
+      text-align: center;
+      font-size: 50px;
+      font: Avenir Next;
+  }
+
+  .formas{
+    background-color: lightslategray;
+    color: white;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline:lightgrey solid;
+    margin: auto;
+    margin-bottom:20px;
 }

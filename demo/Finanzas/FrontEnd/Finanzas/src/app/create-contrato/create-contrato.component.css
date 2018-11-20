@@ -1,0 +1,15 @@
+.formas
+{
+    width:30%;
+    margin:auto;
+}
+
+.row {
+    overflow: hidden;
+    padding: 10px;
+}
+.col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
