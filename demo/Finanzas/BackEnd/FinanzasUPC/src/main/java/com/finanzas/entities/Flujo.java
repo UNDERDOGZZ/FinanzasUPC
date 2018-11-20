@@ -70,6 +70,9 @@ public class Flujo {
 	@Column(name = "flujo_neto", nullable = false)
 	private double flujoNeto;
 
+	@Column(name = "numeroFila", nullable = false)
+	private int numeroFila;
+	
 	public int getId() {
 		return id;
 	}
