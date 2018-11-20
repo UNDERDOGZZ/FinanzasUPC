@@ -1,0 +1,14 @@
+div.form-group {
+    background-color: dodgerblue;
+    color: white;
+    cursor: default;
+    padding: 18px;
+    width: 60%;
+    text-align: left;
+    border: none;
+    outline:none;
+    transition: 0.4s;
+    margin: auto;
+    margin-bottom:25px;
+    margin-top:50x;
+}

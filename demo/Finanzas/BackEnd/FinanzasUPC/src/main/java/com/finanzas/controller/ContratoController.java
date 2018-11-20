@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.faq.entities.Pregunta;
 import com.finanzas.entities.Contrato;
 import com.finanzas.service.ContratoService;
 

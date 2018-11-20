@@ -19,13 +19,11 @@ public class Flujo {
 	private int id;
 
 	//Misc
-	
 	@ManyToOne
 	@JoinColumn(name = "contrato_id", nullable = false)
 	private Contrato contratoId;
 	
 	//Resultados del Arrendamiento
-	
 	@Size(min = 3, message = "Plazo de gracia debe tener como minimo 3 caracteres")
 	@Column(name = "plazo_gracia", nullable = false, length = 150)
 	private String plazoGracia;

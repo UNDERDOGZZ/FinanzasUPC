@@ -11,6 +11,8 @@ import { CreateUsuarioComponent } from './create-usuario/create-usuario.componen
 import { SearchUsuarioComponent } from './search-usuario/search-usuario.component'
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { FlujoListComponent } from './flujo-list/flujo-list.component';
+import { FlujoDetailsComponent } from './flujo-details/flujo-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import {FormsModule} from '@angular/forms';
     ContratoListComponent,
     SearchContratoComponent,
     CreateUsuarioComponent,
-    SearchUsuarioComponent
+    SearchUsuarioComponent,
+    FlujoListComponent,
+    FlujoDetailsComponent
   ],
   imports: [
     BrowserModule,
