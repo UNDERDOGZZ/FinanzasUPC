@@ -117,6 +117,13 @@ public class ResultadoServiceImpl implements ResultadoService {
 		
 		double[] arraydouble = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
 		double[] arraydoubleN = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleI = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleA = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleS = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleC = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleR = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+		double[] arraydoubleD = new double[(int) (NumeroCuotasAnno * c.getNumeroAnnos())];
+
 
 		int indice = 0;
 
@@ -168,6 +175,14 @@ public class ResultadoServiceImpl implements ResultadoService {
 				listaflujos.add(flujo);
 				arraydouble[indice] = flujo.getFlujoBruto();
 				arraydoubleN[indice] = flujo.getFlujoNeto();
+				arraydoubleI[indice] = flujo.getInteres();
+				arraydoubleA[indice] = flujo.getAmortizacion();
+				arraydoubleS[indice] = flujo.getSeguroRiesgo();
+				arraydoubleC[indice] = flujo.getComision();
+				arraydoubleR[indice] = flujo.getRecompra();
+				
+
+				
 				indice++;
 			} else 
 			{
@@ -218,11 +233,25 @@ public class ResultadoServiceImpl implements ResultadoService {
 				listaflujos.add(flujo);
 				arraydouble[indice] = flujo.getFlujoBruto();
 				arraydoubleN[indice] = flujo.getFlujoNeto();
+				arraydoubleI[indice] = flujo.getInteres();
+				arraydoubleA[indice] = flujo.getAmortizacion();
+				arraydoubleS[indice] = flujo.getSeguroRiesgo();
+				arraydoubleC[indice] = flujo.getComision();
+				arraydoubleR[indice] = flujo.getRecompra();
+				
 				indice++;
 			}
 		}
 		double sumaFB=0.0;		
 		double sumaFN=0.0;
+		double intereses=0.0;
+		double amortizacionCap=0.0;
+		double seguroContraR=0.0;
+		double comisionesPer=0.0;
+		double recompra=0.0;
+		double desembolsoT=0.0;
+
+
 
 		Irr irr=new Irr();
 		
@@ -244,7 +273,38 @@ public class ResultadoServiceImpl implements ResultadoService {
 		aux.setVanFlujoNeto(sumaFN+financeLib.npv((Math.pow(1+c.getTasaDescuentoWACC(),c.getFrecuenciaDePago()/c.getNumeroDiasPorAnno()) -1), arraydoubleN));
 		aux.setContratoId(c);
 		
+		for(int i=0; i<aux.getNumeroTotalCuotas();i++)
+		{
+			intereses=intereses+arraydoubleI[i];
+		}
+		aux.setIntereses(intereses);
+		
+		for(int i=0; i<aux.getNumeroTotalCuotas();i++)
+		{
+			amortizacionCap=amortizacionCap+arraydoubleA[i];
+		}
+		aux.setAmortizacionCapital(amortizacionCap);
+		
+		for(int i=0; i<aux.getNumeroTotalCuotas();i++)
+		{
+			seguroContraR=seguroContraR+arraydoubleS[i];
+		}
+		aux.setSeguroContraRiesgo(seguroContraR);
+		for(int i=0; i<aux.getNumeroTotalCuotas();i++)
+		{
+			comisionesPer=comisionesPer+arraydoubleC[i];
+		}
+		aux.setComisionesPeriodicas(comisionesPer);
+		for(int i=0; i<aux.getNumeroTotalCuotas();i++)
+		{
+			recompra=recompra+arraydoubleR[i];
+		}
+		aux.setRecompra(recompra);
+		
+		aux.setDesembolsoTotal(intereses+amortizacionCap+seguroContraR+comisionesPer+recompra);
+		
+		
+		
 		return aux;
 	}
-
 }

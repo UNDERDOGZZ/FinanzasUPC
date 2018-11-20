@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Contrato } from '../model/contrato';
 import { ContratoService } from '../contrato.service';
 import { FlujoService } from '../flujo.service';
+import { SearchContratoComponent } from '../search-contrato/search-contrato.component';
 
 @Component({
   selector: 'app-contrato-details',
@@ -16,7 +17,7 @@ export class ContratoDetailsComponent implements OnInit {
   @Input() contrato: Contrato;
 
   constructor(private contratoService:ContratoService,
-    private flujoService:FlujoService) { }
+    private flujoService:FlujoService, private listComponent: SearchContratoComponent) { }
 
   ngOnInit() {
   }
@@ -28,5 +29,13 @@ export class ContratoDetailsComponent implements OnInit {
   mostrarR()
   {
     this.mostrarresultado = !this.mostrarresultado;
+  }
+
+  Eliminar()
+  {
+    this.contratoService.deleteContrato(this.contrato.id)
+    .subscribe(data=>{ this.listComponent.searchContrato();
+      },
+      error => console.log(error));
   }
 }

@@ -1,18 +1,74 @@
 
-
 <div ng-controller="AngularWayCtrl as showCase">
-    <table style="width:100%">
+    <table  class="row-border hover" cellpadding="10"> 
             <tr>
-              <th>valorVenta:</th>
+              <th>Valor Venta:</th>
               <td>{{resultado.valorVenta}}</td>
             </tr>
             <tr>
-              <th>Telephone:</th>
-              <td>{{resultado.tceaFlujoBruto}}</td>
+              <th>Monto Leasing:</th>
+              <td>{{resultado.montoLeasing}}</td>
             </tr>
             <tr>
-              <th>Telephone:</th>
-              <td>{{resultado.desembolsoTotal}}</td>
+              <th>Porcentaje TEP:</th>
+              <td>{{resultado.porcentajeTEP}}</td>
             </tr>
+             <tr>
+              <th>Numero cuotas por año:</th>
+              <td>{{resultado.numeroCuotasAnno}}</td>
+            </tr>
+            <tr>
+                <th>Numero total de cuotas</th>
+                <td>{{resultado.numeroTotalCuotas}}</td>
+              </tr>
+             <tr>
+              <th>Seguro Riesgo:</th>
+              <td>{{resultado.seguroRiesgo}}</td>
+            </tr>
+            <tr>
+                <th>Intereses:</th>
+                <td>{{resultado.intereses}}</td>
+              </tr>
+              <tr>
+                  <th>Amortizacion de Capital:</th>
+                  <td>{{resultado.amortizacionCapital}}</td>
+                </tr>
+                <tr>
+                    <th>Seguro Contra Riesgo:</th>
+                    <td>{{resultado.seguroContraRiesgo}}</td>
+                  </tr>
+                  <tr>
+                      <th>Comisiones Periodicas:</th>
+                      <td>{{resultado.comisionesPeriodicas}}</td>
+                    </tr>
+                    <tr>
+                        <th>Recompra:</th>
+                        <td>{{resultado.recompra}}</td>
+                      </tr>
+
+                      <tr>
+                          <th>Desembolso Total:</th>
+                          <td>{{resultado.desembolsoTotal}}</td>
+                        </tr>
+                        <tr>
+                            <th>TCEA Flujo Bruto:</th>
+                            <td>{{resultado.tceaFlujoBruto}}</td>
+                          </tr>
+
+                          <tr>
+                              <th>TCEA Flujo Neto:</th>
+                              <td>{{resultado.tceaFlujoNeto}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>VAN Flujo Bruto:</th>
+                                <td>{{resultado.vanFlujoBruto}}</td>
+                              </tr>
+
+                              <tr>
+                                  <th>VAN Flujo Neto:</th>
+                                  <td>{{resultado.vanFlujoNeto}}</td>
+                                </tr>
           </table>
 </div>
+<br>
