@@ -51,7 +51,7 @@ public class Contrato {
 
 	@DecimalMin("0.0")
 	@Column(name = "porcentaje_IGV", nullable = false)
-	private double porcentajeIGV;
+	private double porcentajeIGV = 0.18;
 
 	@DecimalMin("0.0")
 	@Column(name = "porcentaje_impuesto_renta", nullable = false)
