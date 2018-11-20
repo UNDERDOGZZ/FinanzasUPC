@@ -1,4 +1,20 @@
-<p>
-  search-contrato works!
-</p>
+<div>
+  <form (ngSubmit)="searchContrato()">
+    <div class="form-group">
+      <label for="text">Contrato:</label>
+      <input type="text" class="form-control" placeholder="Nombre de la empresa" id="text" required [(ngModel)]="text"
+        name="text">
+    </div>
+ </form>
+
+  <script>
+      var input = document.getElementById("myInput");
+      input.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+              document.getElementById("searchPatient()").click();
+          }
+      });
+      </script>
+</div>
 <app-contrato-list [contratos]='contratos'></app-contrato-list>

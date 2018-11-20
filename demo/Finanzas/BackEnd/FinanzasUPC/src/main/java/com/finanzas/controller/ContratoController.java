@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.faq.entities.Pregunta;
 import com.finanzas.entities.Contrato;
 import com.finanzas.service.ContratoService;
+
+import io.swagger.annotations.ApiOperation;
 
 
 @RestController
@@ -97,5 +100,17 @@ public class ContratoController {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
+	}
+	
+	@ApiOperation("Obtener contratos por empresa")
+	@GetMapping(value = "/search/{empresa}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Contrato>> fetchByText(@PathVariable("empresa") String empresa) {
+		try {
+			List<Contrato> contratos = new ArrayList<>();
+			contratos = contratoService.fetchByEmpresa(empresa);
+			return new ResponseEntity<List<Contrato>>(contratos, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<Contrato>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }
